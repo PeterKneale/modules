@@ -97,7 +97,7 @@ def generateReadgroupBCLCONVERT(ch_fastq_list_csv, ch_fastq) {
         .map { meta, csv_file, fastq_list ->
             def meta_fastq = []
             csv_file
-                .splitCsv(header: true)
+                .splitCsv(header: true, quote: '"')
                 .each { row ->
                     // Create the readgroup tuple
                     // RGID,RGSM,RGLB,Lane,Read1File,Read2File

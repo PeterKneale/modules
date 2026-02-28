@@ -91,13 +91,16 @@ workflow BCL_DEMULTIPLEX {
     logs        = ch_logs
 }
 
+def parseCsv(csvFile, opts = [:]) {
+    return csvFile.splitCsv([quote: '"'] + opts)
+}
+
 def generateReadgroupBCLCONVERT(ch_fastq_list_csv, ch_fastq) {
     return ch_fastq_list_csv
         .join(ch_fastq, by: [0])
         .map { meta, csv_file, fastq_list ->
             def meta_fastq = []
-            csv_file
-                .splitCsv(header: true, quote: '"')
+            parseCsv(csv_file, [header: true])
                 .each { row ->
                     // Create the readgroup tuple
                     // RGID,RGSM,RGLB,Lane,Read1File,Read2File

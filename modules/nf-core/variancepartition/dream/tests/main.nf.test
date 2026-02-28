@@ -125,7 +125,7 @@ nextflow_process {
             process {
                 """
                 ch_contrasts = Channel.fromPath(file("https://raw.githubusercontent.com/nf-core/test-datasets/refs/heads/modules/data/genomics/mus_musculus/rnaseq_expression/SRP254919.contrasts.csv", checkIfExists: true))
-                    .splitCsv ( header:true, sep:',', quote: '"' )
+                    .splitCsv ( header:true, sep:',' )
                     .map{
                         tuple(it, it.variable, it.reference, it.target, it.formula, it.comparison)
                     }

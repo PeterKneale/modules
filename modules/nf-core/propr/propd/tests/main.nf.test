@@ -20,7 +20,7 @@ nextflow_process {
                 expression_test_data_dir = params.modules_testdata_base_path + 'genomics/mus_musculus/rnaseq_expression/'
 
                 ch_contrasts = Channel.fromPath(file(expression_test_data_dir + 'SRP254919.contrasts.csv', checkIfExists: true))
-                    .splitCsv ( header:true, sep:',', quote: '"' )
+                    .splitCsv ( header:true, sep:',' )
                     .map{
                         tuple(it, it.variable, it.reference, it.target)
                     }
@@ -60,7 +60,7 @@ nextflow_process {
                 expression_test_data_dir = params.modules_testdata_base_path + 'genomics/mus_musculus/rnaseq_expression/'
 
                 ch_contrasts = Channel.fromPath(file(expression_test_data_dir + 'SRP254919.contrasts.csv', checkIfExists: true))
-                    .splitCsv ( header:true, sep:',', quote: '"' )
+                    .splitCsv ( header:true, sep:',' )
                     .map{
                         tuple(it, it.variable, it.reference, it.target)
                     }
@@ -104,7 +104,7 @@ nextflow_process {
                 expression_test_data_dir = params.modules_testdata_base_path + 'genomics/mus_musculus/rnaseq_expression/'
 
                 ch_contrasts = Channel.fromPath(file(expression_test_data_dir + 'SRP254919.contrasts.csv', checkIfExists: true))
-                    .splitCsv ( header:true, sep:',', quote: '"' )
+                    .splitCsv ( header:true, sep:',' )
                     .map{
                         tuple(it, it.variable, it.reference, it.target)
                     }
@@ -144,7 +144,7 @@ nextflow_process {
                 expression_test_data_dir = params.modules_testdata_base_path + 'genomics/mus_musculus/rnaseq_expression/'
 
                 ch_contrasts = Channel.fromPath(file(expression_test_data_dir + 'SRP254919.contrasts.csv', checkIfExists: true))
-                    .splitCsv ( header:true, sep:',', quote: '"' )
+                    .splitCsv ( header:true, sep:',' )
                     .map{
                         tuple(it, it.variable, it.reference, it.target)
                     }

@@ -40,11 +40,12 @@ process MULTIQC {
     """
 
     stub:
+    def prefix = task.ext.prefix ?: "multiqc_report"
     """
-    mkdir multiqc_data
-    touch multiqc_data/.stub
-    mkdir multiqc_plots
-    touch multiqc_plots/.stub
-    touch multiqc_report.html
+    mkdir ${prefix}_data
+    touch ${prefix}_data/.stub
+    mkdir ${prefix}_plots
+    touch ${prefix}_plots/.stub
+    touch ${prefix}.html
     """
 }

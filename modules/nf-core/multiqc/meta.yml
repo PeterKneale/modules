@@ -2,9 +2,9 @@ name: multiqc
 description: Aggregate results from bioinformatics analyses across many samples
   into a single report
 keywords:
-  - QC
+  - qc
   - bioinformatics tools
-  - Beautiful stand-alone HTML report
+  - beautiful stand-alone html report
 tools:
   - multiqc:
       description: |
@@ -15,6 +15,7 @@ tools:
       licence:
         - "GPL-3.0-or-later"
       identifier: biotools:multiqc
+      args_id: "$args"
 input:
   - - meta:
         type: map
